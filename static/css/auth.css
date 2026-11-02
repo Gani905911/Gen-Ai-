@@ -1,0 +1,1047 @@
+/* ==========================================================================
+   SMART LIBRARY - AUTHENTICATION DESIGN SYSTEM (Living Library Edition)
+   Cinematic Living Architecture Slideshow, Floating 3D Showcase Cards,
+   Frosted Glass Vignette & Water-Crystal Auth Box
+   ========================================================================== */
+
+/* ── Fullscreen Animated Canvas Container ── */
+.auth-canvas-container {
+  min-height: calc(100vh - 75px);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  background-color: #0F172A;
+  overflow: hidden;
+}
+
+/* ── Layer 1: Cinematic Living Architecture Carousel ── */
+.auth-bg-carousel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.auth-bg-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: kenBurnsSlide 24s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-bg-slide.slide-1 {
+  background-image: url('/static/images/auth/library-1.jpg');
+  animation-delay: 0s;
+}
+
+.auth-bg-slide.slide-2 {
+  background-image: url('/static/images/auth/library-2.jpg');
+  animation-delay: 6s;
+}
+
+.auth-bg-slide.slide-3 {
+  background-image: url('/static/images/auth/library-3.jpg');
+  animation-delay: 12s;
+}
+
+.auth-bg-slide.slide-4 {
+  background-image: url('/static/images/auth/library-4.jpg');
+  animation-delay: 18s;
+}
+
+@keyframes kenBurnsSlide {
+  0% {
+    opacity: 0;
+    transform: scale(1) translate(0, 0);
+  }
+  4% {
+    opacity: 1;
+  }
+  24% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+    transform: scale(1.08) translate(-1%, -1%);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+/* ── Layer 2: Subtle Clear Overlay (Minimal Blur for Crisp Architecture) ── */
+.auth-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(240, 253, 250, 0.12) 50%, rgba(240, 249, 255, 0.22) 100%),
+              radial-gradient(circle at center, rgba(255, 255, 255, 0.18) 0%, rgba(15, 23, 42, 0.38) 100%);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+[data-bs-theme="dark"] .auth-bg-overlay {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(6, 78, 59, 0.35) 50%, rgba(2, 6, 23, 0.55) 100%),
+              radial-gradient(circle at center, rgba(2, 6, 23, 0.2) 0%, rgba(2, 6, 23, 0.6) 100%);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+}
+
+/* ── Layer 3: Ambient Luminescent Orbs ── */
+.auth-ambient-orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.auth-ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(55px);
+  opacity: 0.5;
+  animation: orbFloat 14s ease-in-out infinite alternate;
+}
+
+.auth-ambient-orb.orb-1 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(13, 148, 136, 0.45) 0%, transparent 70%);
+  top: -60px;
+  left: -80px;
+}
+
+.auth-ambient-orb.orb-2 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(251, 113, 133, 0.35) 0%, transparent 70%);
+  bottom: -80px;
+  right: -90px;
+  animation-delay: 7s;
+}
+
+.auth-ambient-orb.orb-3 {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 70%);
+  top: 40%;
+  right: 15%;
+  animation-delay: 4s;
+}
+
+@keyframes orbFloat {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(30px, -25px) scale(1.1); }
+  100% { transform: translate(-25px, 20px) scale(0.95); }
+}
+
+/* ── Layer 4: Floating 3D Photographic Showcase Cards ── */
+.auth-floating-showcase {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.showcase-photo-card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1.5px solid rgba(13, 148, 136, 0.25);
+  border-radius: 16px;
+  padding: 8px 14px 8px 8px;
+  box-shadow: 0 14px 35px -8px rgba(15, 23, 42, 0.12),
+              0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  pointer-events: auto;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+[data-bs-theme="dark"] .showcase-photo-card {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(20, 184, 166, 0.3);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+.showcase-photo-card:hover {
+  transform: translateY(-6px) scale(1.04) !important;
+  box-shadow: 0 20px 45px -8px rgba(13, 148, 136, 0.25),
+              0 0 0 1.5px #0D9488 inset;
+}
+
+.showcase-photo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.15);
+  flex-shrink: 0;
+}
+
+.showcase-icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.35);
+  flex-shrink: 0;
+}
+
+.showcase-photo-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.showcase-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 1px 6px;
+  border-radius: 6px;
+  margin-bottom: 3px;
+  width: fit-content;
+}
+
+.showcase-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0F172A;
+  line-height: 1.25;
+}
+
+[data-bs-theme="dark"] .showcase-title {
+  color: #F8FAFC;
+}
+
+.showcase-subtitle {
+  font-size: 0.72rem;
+  color: #64748B;
+  font-weight: 500;
+}
+
+[data-bs-theme="dark"] .showcase-subtitle {
+  color: #94A3B8;
+}
+
+/* Card 1: Top-Left */
+.card-pos-1 {
+  top: 10%;
+  left: 5%;
+  animation: floatShowcase1 9s ease-in-out infinite alternate;
+}
+
+/* Card 2: Top-Right */
+.card-pos-2 {
+  top: 12%;
+  right: 5%;
+  animation: floatShowcase2 11s ease-in-out infinite alternate;
+}
+
+/* Card 3: Bottom-Left */
+.card-pos-3 {
+  bottom: 12%;
+  left: 6%;
+  animation: floatShowcase3 10s ease-in-out infinite alternate;
+}
+
+/* Card 4: Bottom-Right */
+.card-pos-4 {
+  bottom: 10%;
+  right: 6%;
+  animation: floatShowcase4 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatShowcase1 {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1.8deg); }
+  100% { transform: translateY(6px) rotate(-1.5deg); }
+}
+
+@keyframes floatShowcase2 {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(14px) rotate(-2deg); }
+  100% { transform: translateY(-8px) rotate(1.5deg); }
+}
+
+@keyframes floatShowcase3 {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-1.8deg); }
+  100% { transform: translateY(8px) rotate(2deg); }
+}
+
+@keyframes floatShowcase4 {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(2deg); }
+  100% { transform: translateY(-10px) rotate(-1.5deg); }
+}
+
+/* Hide floating cards on smaller screens so the form is never blocked */
+@media (max-width: 991.98px) {
+  .auth-floating-showcase {
+    display: none;
+  }
+}
+
+/* ── Central Auth Presentation Stage (Live Capsule + Glassmorphism Box) ── */
+.auth-center-stage {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 420px;
+  gap: 12px;
+}
+
+/* Professional Live Status Capsule (Replaces Literary Quotes) */
+.auth-status-capsule {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(13, 148, 136, 0.28);
+  border-radius: 12px;
+  padding: 0.5rem 0.85rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  animation: cardEntrance 0.6s var(--sl-ease-out) forwards;
+}
+
+[data-bs-theme="dark"] .auth-status-capsule {
+  background: rgba(15, 23, 42, 0.92);
+  border-color: rgba(20, 184, 166, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Pulsing Live Radar Indicator */
+.status-indicator-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.status-dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  position: relative;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: radarDotPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes radarDotPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.status-indicator-label {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #059669;
+  text-transform: uppercase;
+}
+
+[data-bs-theme="dark"] .status-indicator-label {
+  color: #34D399;
+}
+
+.status-divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(148, 163, 184, 0.35);
+  flex-shrink: 0;
+}
+
+/* Dynamic Live Status Slide Ticker */
+.status-ticker-wrapper {
+  position: relative;
+  height: 22px;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.status-ticker-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  will-change: opacity, transform;
+  animation: tickerSlideLoop 16s infinite ease-in-out;
+}
+
+.slide-t1 { animation-delay: 0s; }
+.slide-t2 { animation-delay: 4s; }
+.slide-t3 { animation-delay: 8s; }
+.slide-t4 { animation-delay: 12s; }
+
+@keyframes tickerSlideLoop {
+  0% {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  4% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  21% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  25% {
+    opacity: 0;
+    transform: translateY(-7px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+}
+
+.ticker-icon {
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.ticker-title {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #0F172A;
+  white-space: nowrap;
+}
+
+[data-bs-theme="dark"] .ticker-title {
+  color: #F8FAFC;
+}
+
+.ticker-sep {
+  font-size: 0.65rem;
+  color: #94A3B8;
+  margin: 0 1px;
+}
+
+.ticker-detail {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #0D9488;
+  white-space: nowrap;
+}
+
+[data-bs-theme="dark"] .ticker-detail {
+  color: #2DD4BF;
+}
+
+.status-verified-badge {
+  font-size: 0.95rem;
+  color: #0D9488;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  filter: drop-shadow(0 2px 4px rgba(13, 148, 136, 0.3));
+}
+
+[data-bs-theme="dark"] .status-verified-badge {
+  color: #2DD4BF;
+}
+
+/* ── Animated Outer Glow Wrapper for Login & Register Box ── */
+.auth-box-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 420px;
+  width: 100%;
+  border-radius: 22px;
+  padding: 2.5px;
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.7) 0%, rgba(37, 99, 235, 0.5) 35%, rgba(139, 92, 246, 0.45) 70%, rgba(5, 150, 105, 0.7) 100%);
+  background-size: 260% 260%;
+  animation: techBorderGlow 8s ease-in-out infinite alternate,
+             cardEntrance 0.5s var(--sl-ease-out) forwards;
+  box-shadow: 0 16px 36px -10px rgba(13, 148, 136, 0.25),
+              0 0 25px -5px rgba(37, 99, 235, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-bs-theme="dark"] .auth-box-wrapper {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.7) 0%, rgba(59, 130, 246, 0.5) 35%, rgba(168, 85, 247, 0.45) 70%, rgba(16, 185, 129, 0.7) 100%);
+  background-size: 260% 260%;
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.8),
+              0 0 35px -5px rgba(16, 185, 129, 0.3);
+}
+
+@keyframes techBorderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Realistic Water Buoyancy Physics */
+@keyframes waterBuoyancy {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    box-shadow: 0 16px 36px -10px rgba(13, 148, 136, 0.28), 0 0 25px -5px rgba(251, 113, 133, 0.18);
+  }
+  25% {
+    transform: translateY(-4px) rotate(0.35deg);
+    box-shadow: 0 20px 40px -10px rgba(13, 148, 136, 0.32), 0 0 28px -5px rgba(251, 113, 133, 0.22);
+  }
+  50% {
+    transform: translateY(-7px) rotate(-0.3deg);
+    box-shadow: 0 24px 46px -12px rgba(13, 148, 136, 0.36), 0 0 32px -5px rgba(6, 182, 212, 0.24);
+  }
+  75% {
+    transform: translateY(-3px) rotate(0.2deg);
+    box-shadow: 0 18px 38px -10px rgba(13, 148, 136, 0.3), 0 0 26px -5px rgba(251, 113, 133, 0.2);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    box-shadow: 0 16px 36px -10px rgba(13, 148, 136, 0.28), 0 0 25px -5px rgba(251, 113, 133, 0.18);
+  }
+}
+
+/* ── Centered Modern Glassmorphism Card (Pearlescent Water Crystal Finish) ── */
+.auth-card-modern {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 253, 250, 0.95) 50%, rgba(244, 251, 248, 0.92) 100%);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-radius: 22px;
+  padding: 2rem 1.85rem 1.65rem;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.95) inset,
+              0 8px 20px rgba(13, 148, 136, 0.05);
+}
+
+[data-bs-theme="dark"] .auth-card-modern {
+  background: linear-gradient(165deg, rgba(6, 78, 59, 0.65) 0%, rgba(15, 23, 42, 0.95) 60%, rgba(2, 44, 34, 0.85) 100%);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+}
+
+/* Glowing Top Accent Beam (High-Tech Enterprise Spectrum) */
+.auth-card-beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0D9488 0%, #2563EB 33%, #8B5CF6 66%, #10B981 100%);
+  background-size: 200% auto;
+  animation: techBeamShimmer 4s linear infinite;
+  box-shadow: 0 2px 10px rgba(13, 148, 136, 0.45);
+  z-index: 5;
+}
+
+@keyframes techBeamShimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes cardEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Card Header & Brand Badge ── */
+.auth-header-icon-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0D9488 0%, #14B8A6 45%, #059669 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.16), 0 8px 20px rgba(13, 148, 136, 0.35);
+  margin-bottom: 0.65rem;
+  position: relative;
+  animation: pulseIconGlow 3.5s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.auth-header-icon-wrap:hover {
+  transform: scale(1.08) rotate(5deg);
+}
+
+@keyframes pulseIconGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.16), 0 8px 20px rgba(13, 148, 136, 0.35);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(13, 148, 136, 0.28), 0 10px 26px rgba(13, 148, 136, 0.5);
+    transform: scale(1.04);
+  }
+}
+
+.auth-title-modern {
+  font-family: var(--sl-font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--sl-text);
+  margin-bottom: 0.2rem;
+}
+
+.auth-subtitle-modern {
+  font-size: 0.85rem;
+  color: var(--sl-text-muted);
+  line-height: 1.45;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Modern Field Groups (Mail & Password Boxes) ── */
+.auth-label-modern {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--sl-text);
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.01em;
+}
+
+.auth-field-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Dynamic animated gradient underline on input focus */
+.auth-field-group::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, #0D9488 0%, #FB7185 50%, #059669 100%);
+  border-radius: 4px;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.auth-field-group:focus-within::after {
+  width: calc(100% - 24px);
+  left: 12px;
+}
+
+.auth-field-icon {
+  position: absolute;
+  left: 10px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(13, 148, 136, 0.08);
+  color: #0D9488;
+  font-size: 0.95rem;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+}
+
+.auth-field-group:focus-within .auth-field-icon {
+  background: #0D9488;
+  color: #FFFFFF;
+  box-shadow: 0 3px 10px rgba(13, 148, 136, 0.35);
+  transform: scale(1.06);
+}
+
+.auth-input-modern {
+  width: 100%;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  border: 1.5px solid rgba(13, 148, 136, 0.25);
+  color: #0F172A;
+  border-radius: 12px;
+  padding: 0.66rem 2.6rem 0.66rem 2.75rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+[data-bs-theme="dark"] .auth-input-modern {
+  background: linear-gradient(180deg, rgba(17, 26, 46, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border-color: rgba(20, 184, 166, 0.35);
+  color: #F8FAFC;
+}
+
+.auth-input-modern::placeholder {
+  color: #94A3B8;
+  font-weight: 400;
+}
+
+.auth-input-modern:hover {
+  border-color: #0D9488;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+.auth-input-modern:focus {
+  background-color: #FFFFFF;
+  border-color: #0D9488;
+  box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.18), 0 6px 18px rgba(13, 148, 136, 0.15);
+  transform: translateY(-1.5px);
+  outline: none;
+}
+
+[data-bs-theme="dark"] .auth-input-modern:focus {
+  background-color: rgba(17, 26, 46, 1);
+  border-color: #14B8A6;
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.25), 0 6px 18px rgba(20, 184, 166, 0.2);
+}
+
+/* Eye Password Toggle Button Micro-Box */
+.toggle-password-btn {
+  position: absolute;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  background: rgba(13, 148, 136, 0.06);
+  border: 1px solid rgba(13, 148, 136, 0.14);
+  color: #0D9488;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 3;
+}
+
+.toggle-password-btn:hover {
+  color: #FFFFFF;
+  background: #0D9488;
+  border-color: #0D9488;
+  box-shadow: 0 3px 8px rgba(13, 148, 136, 0.35);
+  transform: scale(1.08);
+}
+
+/* Forgot Password Link */
+.auth-forgot-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #0D9488;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.auth-forgot-link:hover {
+  color: #047857;
+  text-decoration: underline;
+}
+
+/* ── Primary Submit Button Box (Emerald Teal Luxury + Animated Sheen) ── */
+.btn-auth-submit {
+  width: 100%;
+  background: linear-gradient(135deg, #0D9488 0%, #0F766E 40%, #047857 100%);
+  color: #FFFFFF !important;
+  border: none;
+  border-radius: 12px;
+  padding: 0.72rem 1.25rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(13, 148, 136, 0.32), 0 1px 3px rgba(4, 120, 87, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Shimmer light sweep across the button */
+.btn-auth-submit::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.32), transparent);
+  transform: skewX(-25deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+
+.btn-auth-submit:hover::before {
+  left: 150%;
+}
+
+.btn-auth-submit:hover {
+  background: linear-gradient(135deg, #0F766E 0%, #047857 60%, #065F46 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.45), 0 0 18px rgba(251, 113, 133, 0.22);
+}
+
+.btn-auth-submit:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn-auth-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Divider ── */
+.auth-divider-modern {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0.85rem 0;
+  color: #94A3B8;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.auth-divider-modern::before,
+.auth-divider-modern::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+[data-bs-theme="dark"] .auth-divider-modern::before,
+[data-bs-theme="dark"] .auth-divider-modern::after {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.auth-divider-modern span {
+  padding: 0 10px;
+}
+
+/* ── Google Sign-in Button Box (Frosted Glass & Hover Animation) ── */
+.btn-auth-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  color: #1E293B;
+  border: 1.5px solid rgba(13, 148, 136, 0.22);
+  border-radius: 12px;
+  padding: 0.65rem 1rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-bs-theme="dark"] .btn-auth-google {
+  background: linear-gradient(180deg, rgba(17, 26, 46, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
+  color: #F8FAFC;
+  border-color: rgba(20, 184, 166, 0.3);
+}
+
+.btn-auth-google svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-auth-google:hover {
+  background: linear-gradient(180deg, #F0FDF4 0%, #CCFBF1 100%);
+  border-color: #0D9488;
+  color: #0F172A;
+  box-shadow: 0 6px 18px rgba(13, 148, 136, 0.16);
+  transform: translateY(-2px);
+}
+
+.btn-auth-google:hover svg {
+  transform: scale(1.15) rotate(4deg);
+}
+
+[data-bs-theme="dark"] .btn-auth-google:hover {
+  background: rgba(6, 78, 59, 0.4);
+  border-color: #10B981;
+  color: #FFFFFF;
+}
+
+/* ── Trust Security Badge Box ── */
+.auth-trust-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 0.85rem;
+  padding: 0.45rem 0.9rem;
+  background: rgba(240, 253, 250, 0.8);
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  border-radius: 20px;
+  color: #0F766E;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.06);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.auth-trust-badge:hover {
+  background: rgba(240, 253, 250, 1);
+  border-color: #0D9488;
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.14);
+  transform: translateY(-1px);
+}
+
+.auth-trust-badge i {
+  animation: badgeShieldPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes badgeShieldPulse {
+  0%, 100% {
+    transform: scale(1);
+    color: #059669;
+  }
+  50% {
+    transform: scale(1.25);
+    color: #0D9488;
+  }
+}
+
+[data-bs-theme="dark"] .auth-trust-badge {
+  background: rgba(15, 23, 42, 0.8);
+  border-color: rgba(20, 184, 166, 0.25);
+  color: #5EEAD4;
+}
+  color: #94A3B8;
+}
+
+/* Category Selection Grid in Register (Compact & Clean) */
+.category-selection-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-height: 95px;
+  overflow-y: auto;
+  padding: 8px;
+  background-color: var(--sl-bg-subtle);
+  border: 1.5px solid #CBD5E1;
+  border-radius: 10px;
+}
+
+.category-selection-grid::-webkit-scrollbar {
+  width: 4px;
+}
+.category-selection-grid::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+.cat-check-chip {
+  position: relative;
+}
+
+.cat-check-chip input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.cat-check-chip label {
+  display: inline-block;
+  padding: 0.28rem 0.65rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  border-radius: var(--sl-radius-full);
+  background-color: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[data-bs-theme="dark"] .cat-check-chip label {
+  background-color: var(--sl-bg-card);
+  border-color: var(--sl-border);
+  color: var(--sl-text);
+}
+
+.cat-check-chip label:hover {
+  border-color: var(--sl-blue);
+  color: var(--sl-blue);
+  background-color: #EFF6FF;
+}
+
+.cat-check-chip input[type="checkbox"]:checked + label {
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 575.98px) {
+  .auth-card-modern {
+    padding: 2.25rem 1.65rem;
+    border-radius: 20px;
+  }
+  .auth-title-modern {
+    font-size: 1.75rem;
+  }
+}

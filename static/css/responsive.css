@@ -1,0 +1,83 @@
+/* ==========================================================================
+   SMART LIBRARY - RESPONSIVE & MOBILE ADAPTATIONS
+   ========================================================================== */
+
+@media (max-width: 991.98px) {
+  .auth-split-wrapper {
+    flex-direction: column;
+  }
+
+  .auth-left-banner {
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+
+  .auth-banner-illustration {
+    max-width: 280px;
+  }
+
+  .auth-right-form {
+    padding: 2.5rem 1rem;
+  }
+
+  .auth-form-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .hero-wrapper {
+    padding: 3.5rem 0 2.5rem;
+  }
+
+  .hero-wrapper h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .book-cover-container {
+    height: 200px;
+  }
+
+  .book-cover-img {
+    max-height: 180px;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+  }
+
+  .stat-value {
+    font-size: 1.4rem;
+  }
+
+  .search-box-large {
+    padding: 0.35rem;
+  }
+
+  .search-box-large input {
+    font-size: 0.95rem;
+    padding: 0.5rem;
+  }
+
+  .dashboard-hero-banner {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navbar-brand-img {
+    height: 32px;
+  }
+
+  .category-pill {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.75rem;
+  }
+}
+

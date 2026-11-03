@@ -19,6 +19,7 @@ app = main_mod.app
 if __name__ == "__main__":
     print("================================================================")
     print("  SMART LIBRARY BOOK RECOMMENDER - SERVER STARTING")
-    print("  URL: http://127.0.0.1:5000")
+    print("  Localhost URL:     http://127.0.0.1:5000")
+    print("  Network Wi-Fi URL: http://0.0.0.0:5000")
     print("================================================================")
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
